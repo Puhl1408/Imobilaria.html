@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chalet en el Campo | Refugio de la Naturaleza</title>
+<meta name="description" content="Chalet rústico moderno en el campo, con terraza cubierta, dos dormitorios, cocina, comedor y sala.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --verde:#26372d;
+  --verde2:#3d5747;
+  --creme:#f4f0e7;
+  --claro:#fbfaf7;
+  --texto:#20231f;
+  --dourado:#b89a67;
+  --max:1280px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",Arial,sans-serif;color:var(--texto);background:var(--claro);line-height:1.6}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{text-decoration:none;color:inherit}
+.container{width:min(var(--max),92%);margin:auto}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 4%;
+  color:white;
+  background:linear-gradient(to bottom,rgba(0,0,0,.58),transparent);
+  transition:.3s;
+}
+.nav.scrolled{background:rgba(38,55,45,.97);padding:14px 4%}
+.logo{font-family:"Playfair Display",serif;font-size:25px;letter-spacing:.08em}
+.nav-links{display:flex;gap:27px;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.nav-links a{opacity:.92}
+.nav-links a:hover{color:#e5d2a7}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px}
+
+/* HERO */
+.hero{height:94vh;min-height:650px;position:relative;overflow:hidden}
+.hero img{filter:brightness(.73)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.56),transparent 65%),linear-gradient(0deg,rgba(0,0,0,.4),transparent 45%)}
+.hero-content{position:absolute;z-index:2;left:7%;bottom:12%;color:#fff;max-width:700px}
+.kicker{text-transform:uppercase;letter-spacing:.25em;font-size:12px;margin-bottom:16px}
+h1{font:600 clamp(50px,8vw,105px)/.94 "Playfair Display",serif;margin-bottom:24px}
+.hero p{font-size:18px;max-width:560px}
+.btn{display:inline-block;margin-top:28px;background:#fff;color:var(--verde);padding:14px 24px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+.btn.dark{background:var(--verde);color:#fff}
+
+/* SEÇÕES */
+section{padding:110px 0}
+.section-head{display:flex;justify-content:space-between;gap:50px;align-items:end;margin-bottom:50px}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;color:var(--dourado);font-size:12px;font-weight:600}
+h2{font:600 clamp(38px,5vw,68px)/1.02 "Playfair Display",serif;color:var(--verde);margin-top:10px}
+.lead{max-width:500px;color:#5f625d}
+
+/* DIFERENCIAIS */
+.features{background:var(--verde);color:#fff}
+.features h2{color:#fff}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.18)}
+.feature{padding:35px 25px;min-height:170px;background:var(--verde)}
+.feature strong{display:block;font:600 24px "Playfair Display",serif;margin-bottom:12px}
+.feature span{font-size:14px;color:#d9ded9}
+
+/* GALERIA */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.card{position:relative;overflow:hidden;background:#ddd;min-height:360px}
+.card img{transition:transform .6s}
+.card:hover img{transform:scale(1.04)}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent 55%)}
+.card-title{position:absolute;z-index:2;left:22px;bottom:20px;color:#fff;text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:600}
+.card:nth-child(1){grid-column:span 7}
+.card:nth-child(2){grid-column:span 5}
+.card:nth-child(3),.card:nth-child(4),.card:nth-child(5),.card:nth-child(6){grid-column:span 3}
+.card:nth-child(7){grid-column:span 3}
+.card:nth-child(8){grid-column:span 3}
+.card:nth-child(9){grid-column:span 3}
+.card:nth-child(10){grid-column:span 3}
+
+/* PLANTA */
+.plan-section{background:var(--creme)}
+.plan-wrap{background:white;padding:20px;box-shadow:0 15px 45px rgba(0,0,0,.07)}
+.plan-wrap img{height:auto;object-fit:contain}
+.room-list{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.room-list div{padding:18px;background:#fff;border-left:3px solid var(--dourado)}
+.room-list b{display:block;color:var(--verde);font-family:"Playfair Display",serif;font-size:19px}
+.room-list span{font-size:12px;color:#666}
+
+/* INFO */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.info-img{height:600px}
+.info-text p{max-width:560px;color:#5d615b;margin-top:22px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.check{padding:13px 15px;background:#f0eee8;font-size:13px}
+
+/* CONTATO */
+.contact{background:#e8e2d4}
+.contact-box{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.contact h2{max-width:600px}
+form{background:#fff;padding:34px}
+input,textarea{width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;font:inherit}
+textarea{min-height:120px;resize:vertical}
+footer{background:#202b24;color:#cdd3ce;padding:35px 0;font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+@media(max-width:850px){
+ .nav-links{display:none}.menu-btn{display:block}
+ .hero-content{left:6%;right:6%}
+ .feature-grid{grid-template-columns:1fr 1fr}
+ .section-head{display:block}
+ .section-head .lead{margin-top:20px}
+ .gallery{display:grid;grid-template-columns:1fr 1fr}
+ .card,.card:nth-child(n){grid-column:span 1;min-height:260px}
+ .card:nth-child(1),.card:nth-child(2){grid-column:span 2}
+ .room-list{grid-template-columns:1fr 1fr}
+ .info,.contact-box{grid-template-columns:1fr;gap:35px}
+ .info-img{height:420px}
+}
+@media(max-width:520px){
+ section{padding:75px 0}
+ .hero{min-height:600px}
+ .feature-grid,.gallery,.room-list{grid-template-columns:1fr}
+ .card,.card:nth-child(n),.card:nth-child(1),.card:nth-child(2){grid-column:span 1}
+ .checks{grid-template-columns:1fr}
+ h1{font-size:53px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#inicio">CHALET EN EL CAMPO</a>
+  <nav class="nav-links">
+    <a href="#chalet">El chalet</a>
+    <a href="#ambientes">Ambientes</a>
+    <a href="#planta">Planta</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <button class="menu-btn" aria-label="Abrir menú">☰</button>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <img src="imagens/fachada.jpg" alt="Fachada del chalet en el campo">
+  <div class="hero-content">
+    <div class="kicker">Refugio rural · Naturaleza · Descanso</div>
+    <h1>Un lugar para volver a respirar.</h1>
+    <p>Un chalet rústico moderno rodeado de naturaleza, pensado para descansar, convivir y disfrutar del campo.</p>
+    <a class="btn" href="#ambientes">Conocer el chalet</a>
+  </div>
+</section>
+
+<section id="chalet">
+ <div class="container">
+  <div class="section-head">
+   <div>
+    <div class="eyebrow">El proyecto</div>
+    <h2>Calidez, madera<br>y naturaleza.</h2>
+   </div>
+   <p class="lead">Una vivienda de campo con espacios integrados, grandes ventanas y una terraza cubierta para aprovechar el paisaje durante todo el día.</p>
+  </div>
+  <div class="feature-grid">
+   <div class="feature"><strong>100 m²</strong><span>Área construida aproximada</span></div>
+   <div class="feature"><strong>02</strong><span>Dormitorios</span></div>
+   <div class="feature"><strong>02</strong><span>Baños</span></div>
+   <div class="feature"><strong>01</strong><span>Terraza cubierta</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="ambientes">
+ <div class="container">
+  <div class="section-head">
+   <div><div class="eyebrow">Ambientes</div><h2>Cada espacio<br>tiene su momento.</h2></div>
+   <p class="lead">Conoce los ambientes del chalet y visualiza cómo se conectan entre sí.</p>
+  </div>
+
+  <div class="gallery">
+   <article class="card"><img src="imagens/sala.jpg" alt="Sala"><div class="card-title">Sala</div></article>
+   <article class="card"><img src="imagens/comedor.jpg" alt="Comedor"><div class="card-title">Comedor</div></article>
+   <article class="card"><img src="imagens/cocina.jpg" alt="Cocina"><div class="card-title">Cocina</div></article>
+   <article class="card"><img src="imagens/terraza-cubierta.jpg" alt="Terraza cubierta"><div class="card-title">Terraza cubierta</div></article>
+   <article class="card"><img src="imagens/dormitorio-principal.jpg" alt="Dormitorio principal"><div class="card-title">Dormitorio principal</div></article>
+   <article class="card"><img src="imagens/bano-principal.jpg" alt="Baño principal"><div class="card-title">Baño principal</div></article>
+   <article class="card"><img src="imagens/dormitorio-2.jpg" alt="Dormitorio 2"><div class="card-title">Dormitorio 2</div></article>
+   <article class="card"><img src="imagens/bano-comun.jpg" alt="Baño común"><div class="card-title">Baño común</div></article>
+  </div>
+ </div>
+</section>
+
+<section class="plan-section" id="planta">
+ <div class="container">
+  <div class="section-head">
+   <div><div class="eyebrow">Distribución</div><h2>Planta baja.</h2></div>
+   <p class="lead">Distribución pensada para separar la zona íntima de las áreas sociales, manteniendo la cocina, comedor y sala integrados.</p>
+  </div>
+  <div class="plan-wrap">
+    <img src="imagens/planta-baja.jpg" alt="Planta baja del chalet">
+  </div>
+  <div class="room-list">
+   <div><b>Sala</b><span>Área social y de descanso</span></div>
+   <div><b>Comedor</b><span>Espacio para comidas en familia</span></div>
+   <div><b>Cocina</b><span>Cocina integrada</span></div>
+   <div><b>Terraza cubierta</b><span>Conexión con el exterior</span></div>
+   <div><b>Dormitorio principal</b><span>Habitación principal</span></div>
+   <div><b>Dormitorio 2</b><span>Habitación secundaria</span></div>
+   <div><b>Baño principal</b><span>Baño de la habitación principal</span></div>
+   <div><b>Baño común</b><span>Baño de uso social</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="experiencia">
+ <div class="container info">
+  <div class="info-img"><img src="imagens/terraza-cubierta.jpg" alt="Terraza del chalet"></div>
+  <div class="info-text">
+   <div class="eyebrow">La experiencia</div>
+   <h2>El campo como parte de la casa.</h2>
+   <p>La terraza cubierta funciona como una extensión de la sala y permite disfrutar del paisaje con sombra y protección. La madera y los grandes ventanales crean una atmósfera cálida durante todo el día.</p>
+   <div class="checks">
+    <div class="check">✓ Vista para la naturaleza</div>
+    <div class="check">✓ Terraza cubierta</div>
+    <div class="check">✓ Cocina integrada</div>
+    <div class="check">✓ 2 dormitorios</div>
+    <div class="check">✓ 2 baños</div>
+    <div class="check">✓ Sala y comedor amplios</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="contact" id="contacto">
+ <div class="container contact-box">
+  <div>
+   <div class="eyebrow">Contacto</div>
+   <h2>¿Quieres conocer este chalet?</h2>
+   <p class="lead" style="margin-top:20px">Déjanos un mensaje para recibir más información sobre el proyecto.</p>
+  </div>
+  <form onsubmit="event.preventDefault(); alert('Mensaje enviado.');">
+   <input type="text" placeholder="Nombre" required>
+   <input type="email" placeholder="E-mail" required>
+   <input type="tel" placeholder="Teléfono">
+   <textarea placeholder="Mensaje"></textarea>
+   <button class="btn dark" type="submit" style="border:0;cursor:pointer">Enviar mensaje</button>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <span>© 2026 Chalet en el Campo</span>
+  <span>Proyecto conceptual · Diseño rural</span>
+ </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+</script>
+</body>
+</html>
